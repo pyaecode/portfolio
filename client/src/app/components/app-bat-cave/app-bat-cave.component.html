@@ -1,0 +1,24 @@
+<div class="batcave-container">
+  @if (errorMessage()) {
+    <div class="error-overlay">
+      <div class="error-message">
+        <h3>System Error</h3>
+        <p>{{ errorMessage() }}</p>
+        <button class="retry-button" (click)="loadBatcaveModel()">Retry</button>
+      </div>
+    </div>
+  }
+
+  <canvas
+    #batcaveCanvas
+    class="batcave-canvas"
+    [class.hidden]="errorMessage()"
+    (window:resize)="onWindowResize()">
+  </canvas>
+
+  <app-bat-console #batConsole (consoleExit)="returnToMainCamera()"></app-bat-console>
+
+  <app-bat-bio #batBio (consoleExit)="returnToMainCamera()"></app-bat-bio>
+
+  <app-bat-work #batWork (consoleExit)="returnToMainCamera()"></app-bat-work>
+</div>

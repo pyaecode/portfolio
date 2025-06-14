@@ -1,0 +1,48 @@
+<style>
+  :host {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .app-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .main-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: none;
+    z-index: 1;
+    background: var(--primary-background-color);
+  }
+
+  /* Ensure main content stays hidden until bat reveal */
+  .main-content:not(.bat-reveal-ready) {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  .main-content.bat-reveal-ready {
+    visibility: visible;
+  }
+
+  .main-content.visible {
+    opacity: 1;
+  }
+</style>
+
+<div class="app-container">
+  <div class="main-content">
+    <app-home />
+  </div>
+  <app-bat-reveal />
+  <app-ui-overlay />
+</div>
