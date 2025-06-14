@@ -1,0 +1,39 @@
+<div class="ui-overlay">
+  <div class="bottom-left-controls">
+    <div class="beta-sign">
+      <span class="beta-text">BETA</span>
+    </div>
+
+    <div class="help-container">
+      <button
+        class="help-icon"
+        (mouseenter)="toggleHelp()"
+        (mouseleave)="hideHelp()"
+        (click)="onHelpClick()"
+        title="Click to highlight interactive elements">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 17h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      @if (showHelp()) {
+        <div class="help-tooltip">
+          <div class="help-content">
+            <h4>Interactive Elements</h4>
+            <ul>
+              <li><span class="icon">🦇</span> Batcowl - View developer profile</li>
+              <li><span class="icon">💻</span> Console - Browse projects</li>
+              <li><span class="icon">🚗</span> Vehicles - Work experience</li>
+            </ul>
+            <div class="help-note">
+              Click the highlighted elements to view details.
+            </div>
+            <app-app-credits></app-app-credits>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

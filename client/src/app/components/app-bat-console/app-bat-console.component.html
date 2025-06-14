@@ -1,0 +1,122 @@
+@if (isVisible()) {
+  <div class="bat-console">
+    <div class="console-header">
+      <div class="header-line"></div>
+      <h2 class="console-title">PROJECT ARCHIVE</h2>
+      <div class="header-line"></div>
+      <div class="system-controls">
+        <button class="power-btn" (click)="exitConsole()" title="Power Down Console">
+          <div class="power-symbol">
+            <div class="power-circle"></div>
+            <div class="power-line"></div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="console-content">
+      <div class="project-dial-container">
+        <div class="project-dial"
+             [style.transform]="'rotate(' + dialRotation() + 'deg)'">
+          @for (project of projects(); track $index; let i = $index) {
+            <div class="dial-marker"
+                 [class.active]="i === currentProjectIndex()"
+                 [style.transform]="'rotate(' + (i * 360 / projects().length) + 'deg)'"
+                 (click)="selectProjectByIndex(i)">
+              <div class="marker-dot"></div>
+            </div>
+          }
+        </div>
+
+        <div class="dial-controls">
+          <button class="dial-btn prev"
+                  (click)="previousProject()">
+            <span class="btn-icon">◀</span>
+          </button>
+          <div class="dial-center">
+            <div class="center-ring"></div>
+            <div class="center-dot"></div>
+          </div>
+          <button class="dial-btn next"
+                  (click)="nextProject()">
+            <span class="btn-icon">▶</span>
+          </button>
+        </div>
+      </div>
+
+      @if (selectedProject(); as project) {
+        <div class="project-details">
+          <div class="project-header">
+            <div class="project-category">
+              <span class="category-icon">{{ getCategoryIcon(project.category) }}</span>
+              <span class="category-text">{{ project.category | uppercase }}</span>
+            </div>
+            <div class="project-status"
+                 [style.color]="getStatusColor(project.status)">
+              ● {{ project.status | uppercase }}
+            </div>
+          </div>
+
+          <h3 class="project-title">{{ project.name }}</h3>
+
+          <p class="project-description">{{ project.description }}</p>
+
+          <div class="tech-section">
+            <h4 class="section-title">TECHNOLOGIES</h4>
+            <div class="tech-tags">
+              @for (tech of currentProjectTechnologies(); track $index) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
+          </div>
+
+          @if (project.links.github || project.links.demo || project.links.download) {
+            <div class="links-section">
+              <h4 class="section-title">LINKS</h4>
+              <div class="project-links">
+                @if (project.links.github) {
+                  <button class="link-btn github" (click)="openLink(project.links.github)">
+                    <span class="link-icon">⚡</span>
+                    <span class="link-text">SOURCE</span>
+                  </button>
+                }
+                @if (project.links.demo) {
+                  <button class="link-btn demo" (click)="openLink(project.links.demo)">
+                    <span class="link-icon">🌐</span>
+                    <span class="link-text">DEMO</span>
+                  </button>
+                }
+                @if (project.links.download) {
+                  <button class="link-btn download" (click)="openLink(project.links.download)">
+                    <span class="link-icon">📱</span>
+                    <span class="link-text">DOWNLOAD</span>
+                  </button>
+                }
+              </div>
+            </div>
+          }
+
+          @if (currentProjectFeatures().length > 0) {
+            <div class="features-section">
+              <h4 class="section-title">KEY FEATURES</h4>
+              <ul class="feature-list">
+                @for (feature of currentProjectFeatures(); track $index) {
+                  <li class="feature-item">{{ feature }}</li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="console-footer">
+      <div class="footer-line"></div>
+      <div class="navigation-hint">
+        <span class="hint-text">Use ← → arrows or click dial to navigate</span>
+        <span class="hint-text">ESC or power button to exit</span>
+      </div>
+      <div class="footer-line"></div>
+    </div>
+  </div>
+}

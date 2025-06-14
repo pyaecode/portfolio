@@ -1,0 +1,250 @@
+{
+  "bio": {
+    "name": "Pyae Kyaw",
+    "title": "Full Stack Developer",
+    "summary": "Passionate developer with expertise in modern web technologies, 3D graphics, and AI integration. Dedicated to creating immersive digital experiences and solving complex technical challenges.",
+    "location": "United States",
+    "email": "pyaekyawcode@gmail.com",
+    "linkedIn": "https://linkedin.com/in/pyaekyaw/",
+    "skills": [
+      {
+        "category": "Frontend",
+        "items": ["React", "TypeScript", "Angular", "Leaftlet", "D3", "Aurelia"]
+      },
+      {
+        "category": "Backend",
+        "items": ["Java", "Python", "Node.js", "Spring Boot", "FastAPI", "Symfony", "Django", "Haskell Hobbyist"]
+      },
+      {
+        "category": "Database",
+        "items": ["PostgresSQL", "MongoDB", "Redis", "Neo4j"]
+      },
+      {
+        "category": "Cloud & DevOps",
+        "items": ["Google Cloud", "Docker", "Jenkins", "Supabase", "Firebase"]
+      },
+      {
+        "category": "Tools & Frameworks",
+        "items": ["Git", "Webpack", "Vite", "Jest"]
+      }
+    ],
+    "education": [
+    ],
+    "certifications": [
+    ],
+    "languages": [
+      {
+        "language": "English",
+        "proficiency": "Fluent"
+      },
+      {
+        "language": "Burmese",
+        "proficiency": "Native"
+      }
+    ],
+    "interests": [
+      "Web Technologies",
+      "ML",
+      "DevOps"
+    ]
+  },
+  "projects": [
+    {
+      "id": "portfolio",
+      "name": "Interactive 3D Portfolio",
+      "description": "A futuristic portfolio website featuring 3D Batman cave environment with interactive elements.",
+      "longDescription": "This portfolio showcases my skills through an immersive 3D experience built with Three.js and Angular. Users can explore a detailed Batman cave environment, interact with various objects, and discover projects through futuristic interfaces.",
+      "technologies": ["Angular", "Three.js", "TypeScript", "GSAP", "WebGL", "SCSS", "Blender"],
+      "category": "web",
+      "status": "in-progress",
+      "links": {
+        "github": "https://github.com/pyaecode/portfolio",
+        "demo": "https://pyaecode.github.io/portfolio"
+      },
+      "images": [],
+      "features": [
+        "3D interactive environment",
+        "Futuristic UI components"
+      ],
+      "challenges": [
+        "Optimizing 3D performance for web",
+        "Creating smooth camera animations",
+        "Blender camera work and scene design"
+      ],
+      "achievements": [
+        "Created immersive user experience",
+        "Implemented advanced Three.js features"
+      ],
+      "startDate": "2025",
+      "teamSize": 1,
+      "role": "Full Stack Developer"
+    },
+    {
+      "id": "burmese-lexicon",
+      "name": "Burmese Lexicon",
+      "description": "Crowd-sourced burmese words, phrases and multilingual translations",
+      "longDescription": "Crowd-sourced burmese words, phrases and multilingual translations",
+      "technologies": ["Aurelia", "Firebase", "AWS", "Netlify"],
+      "category": "web",
+      "status": "completed",
+      "links": {
+        "github": "https://github.com/burmese-lexicon/burmese-lexicon",
+        "demo": "https://burmese-lexicon.com"
+      },
+      "images": ["/images/burmese-lexicon.png"],
+      "features": [
+        "Crowd-sourced content",
+        "federated authentication"
+      ],
+      "challenges": [
+        "High read:low write ratio",
+        "ETL"
+      ],
+      "achievements": [
+        "federated authentication",
+        "ETL"
+      ],
+      "startDate": "2018",
+      "teamSize": 1,
+      "role": "Full Stack Developer"
+    }
+  ],
+  "workExperiences": [
+    {
+      "id": "personal-ai",
+      "company": "Personal AI",
+      "position": "Software Engineer",
+      "duration": "2025-07-01 - Current",
+      "description": "Cool things to come",
+      "responsibilities": [
+      ],
+      "achievements": [
+      ],
+      "technologies": [],
+      "teamSize": 4,
+      "location": "Remote",
+      "companyType": "AI Startup",
+      "projects": [
+      ]
+    },
+    {
+      "id": "hln-consulting",
+      "company": "HLN Consulting LLC",
+      "position": "Software Engineer",
+      "duration": "2024-01-16 - 2025-06-30",
+      "description": "Worked as a full-stack engineer on a suite of New York City’s healthcare systems including city-wide immunization registry, provider profiles, vaccine ordering and management, and patient vaccine records.",
+      "responsibilities": [
+        "Implement highly complex forms and business logics using React, GraphQL, and Spring Boot microservices",
+        "Work with Keycloak authentication server, Spring Boot, and React for SSO integration",
+        "Utilize Docker for local development and production deployment",
+        "Migrate legacy JSF views to modern React apps using module federation",
+        "Employ RabbitMQ for communication between microservices",
+        "Set up error tracking system for the whole stack with Sentry"
+      ],
+      "achievements": [
+        "Successfully migrated legacy JSF views to modern React apps, improving user experience and maintainability",
+        "Established robust error tracking across the full stack using Sentry, enhancing system stability",
+        "Developed complex forms and business logic for critical city-wide healthcare systems"
+      ],
+      "technologies": ["React", "Apollo", "GraphQL", "TypeScript", "Spring Boot", "Docker", "PostgresSQL", "Keycloak", "RabbitMQ", "Sentry"],
+      "teamSize": 20,
+      "location": "Remote",
+      "companyType": "Healthcare Software/Consulting",
+      "projects": [
+        {
+          "name": "City-wide Immunization Registry & Healthcare Systems",
+          "description": "Full-stack development for core components of New York City's immunization registry, provider profiles, vaccine ordering, and patient records.",
+          "technologies": ["React", "GraphQL", "Spring Boot", "PostgresSQL", "Docker", "Keycloak", "RabbitMQ"]
+        }
+      ]
+    },
+    {
+      "id": "kitestring",
+      "company": "Kitestring Technical",
+      "position": "Software Engineer",
+      "duration": "2020-10-12 - 2024-01-15",
+      "description": "Worked as a frontend-leaning developer on a critical next-gen POS system designed to serve millions of customers daily.",
+      "responsibilities": [
+        "Design and implement credit card application processes for staffed lanes",
+        "Develop frontend for POS self-checkout system using React, Redux, and TypeScript",
+        "Integrate with POS devices such as printers, scales, and pinpads using Java",
+        "Design and implement internationalization for POS staffed lanes across different markets",
+        "Implement various payment flows including credit/debit/cash for staffed lanes",
+        "Work with cloud payment APIs and Splunk for monitoring"
+      ],
+      "achievements": [
+        "Successfully designed and implemented credit card application and various payment flows for high-volume POS systems.",
+        "Contributed significantly to a critical next-gen POS system serving millions of daily customers.",
+        "Developed internationalization features for global market deployment of POS systems."
+      ],
+      "technologies": ["React", "Redux", "TypeScript", "Spring Boot", "Java", "Ingenico Pinpad API", "Splunk", "Cloud Payment APIs"],
+      "teamSize": 6,
+      "location": "Remote",
+      "companyType": "Retail Technology / POS Solutions",
+      "projects": [
+        {
+          "name": "Next-Gen POS Staffed Lanes including rewards card application",
+          "description": "Development of credit card application processes and diverse payment flows for high-traffic point-of-sale staffed lanes.",
+          "technologies": ["React", "Redux", "TypeScript", "Spring Boot", "Java"]
+        },
+        {
+          "name": "POS Device Integration & Internationalization",
+          "description": "Integration with various POS hardware devices and implementation of internationalization features for multi-market deployment.",
+          "technologies": ["Java", "Ingenico Pinpad API"]
+        }
+      ]
+    },
+    {
+      "id": "cattlab",
+      "company": "Center for Advanced Transportation Technology Lab, University of Maryland",
+      "position": "Full-stack Software Engineer",
+      "duration": "2013-05-01 - 2020-10-09",
+      "description": "Developed software solutions for transportation-related projects, encompassing continuous delivery, web applications, and real-time data systems.",
+      "responsibilities": [
+        "Lead effort to develop in-house Continuous Delivery System with Docker, Jenkins, and Ansible",
+        "Lead effort to convert AS3 projects to React in both SPA and MPA environments",
+        "Implement various frontend functionalities including traffic maps, historical, and real-time data visualization dashboards using modern JavaScript frameworks",
+        "Implement various backend services such as SSO, user account and permissions management, and RESTful APIs using PHP, Python, and Java frameworks",
+        "Maintain and improve a CCTV streaming and thumbnailer system using Evostream, FFmpeg, and uWSGI",
+        "Maintain a real-time chat application based on Openfire",
+        "Set up automated testing with Selenium and other frontend frameworks",
+        "Utilize Atlassian Suite for Agile Development",
+        "Conduct web application load testing to inspect bottlenecks and find potential improvements",
+        "Implement transportation-related visualizations to show congestion and user delay costs",
+        "Set up in-house centralized error reporting system using Sentry.io Docker build"
+      ],
+      "achievements": [
+        "Developed and implemented an in-house Continuous Delivery System, significantly streamlining deployment processes.",
+        "Successfully led the migration of AS3 projects to modern React applications, enhancing performance and maintainability.",
+        "Designed and deployed comprehensive real-time data visualization dashboards for critical transportation metrics.",
+        "Established a centralized error reporting system, improving incident response and system reliability."
+      ],
+      "technologies": ["Docker", "Jenkins", "Ansible", "React", "JavaScript", "PHP", "Python", "Java", "Evostream", "FFmpeg", "uWSGI", "Openfire", "Selenium", "Sentry", "Atlassian Suite"],
+      "teamSize": 30,
+      "location": "College Park, Maryland",
+      "companyType": "University Research Lab",
+      "projects": [
+        {
+          "name": "Continuous Delivery System",
+          "description": "In-house CI/CD system development leveraging Docker, Jenkins, and Ansible.",
+          "technologies": ["Docker", "Jenkins", "Ansible"]
+        },
+        {
+          "name": "AS3 to React Migration & Web Application Development",
+          "description": "Conversion of legacy AS3 projects to React SPAs/MPAs and implementation of diverse frontend functionalities including traffic maps and data visualization.",
+          "technologies": ["React", "JavaScript", "AS3 (Legacy)"]
+        },
+        {
+          "name": "Backend Services & Real-time Systems",
+          "description": "Development of SSO, user management, RESTful APIs, CCTV streaming, and a real-time chat application.",
+          "technologies": ["PHP", "Python", "Java", "Evostream", "FFmpeg", "uWSGI", "Openfire"]
+        },
+        {
+          "name": "Centralized Error Reporting & QA Automation",
+          "description": "Implementation of an in-house error reporting system (Sentry) and setup of automated testing frameworks.",
+          "technologies": ["Sentry", "Docker", "Selenium"]
+        }
+      ]
+    }
+  ]
+}

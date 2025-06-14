@@ -1,0 +1,119 @@
+@if (isVisible()) {
+  <div class="bat-bio">
+    <div class="console-header">
+      <div class="header-line"></div>
+      <h2 class="console-title">DEVELOPER PROFILE</h2>
+      <div class="header-line"></div>
+      <div class="system-controls">
+        <button class="power-btn" (click)="exitBio()" title="Power Down Bio Interface">
+          <div class="power-symbol">
+            <div class="power-circle"></div>
+            <div class="power-line"></div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="bio-content">
+      <div class="bio-section personal-info">
+        <div class="section-header">
+          <h3 class="section-title">{{ bio().name }}</h3>
+          <p class="section-subtitle">{{ bio().title }}</p>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span class="contact-text">{{ bio().location }}</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <span class="contact-text">{{ bio().email }}</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon"></span>
+            <span class="contact-text"><a href="{{ bio().linkedIn }}" target="_blank">LinkedIn</a></span>
+          </div>
+        </div>
+
+        <p class="bio-summary">{{ bio().summary }}</p>
+      </div>
+
+      <div class="bio-columns">
+        <div class="bio-column left-column">
+          <div class="bio-section skills-section">
+            <h4 class="section-title">TECHNICAL SKILLS</h4>
+            @for (skillGroup of bio().skills; track $index) {
+              <div class="skill-group">
+                <h5 class="skill-category">{{ skillGroup.category }}</h5>
+                <div class="skill-tags">
+                  @for (skill of skillGroup.items; track $index) {
+                    <span class="skill-tag">{{ skill }}</span>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="bio-column right-column">
+          <div class="bio-section languages-section">
+            <h4 class="section-title">LANGUAGES</h4>
+            <div class="language-list">
+              @for (lang of bio().languages; track $index) {
+                <div class="language-item">
+                  <span class="language-name">{{ lang.language }}</span>
+                  <span class="language-level">{{ lang.proficiency }}</span>
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="bio-section interests-section">
+            <h4 class="section-title">INTERESTS</h4>
+            <div class="interest-tags">
+              @for (interest of bio().interests; track $index) {
+                <span class="interest-tag">{{ interest }}</span>
+              }
+            </div>
+          </div>
+
+          @if (bio().education && bio().education.length > 0) {
+            <div class="bio-section education-section">
+              <h4 class="section-title">EDUCATION</h4>
+              @for (edu of bio().education; track $index) {
+                <div class="education-item">
+                  <h5 class="education-degree">{{ edu.degree }}</h5>
+                  <p class="education-institution">{{ edu.institution }}</p>
+                  <span class="education-year">{{ edu.year }}</span>
+                </div>
+              }
+            </div>
+          }
+
+          @if (bio().certifications && bio().certifications.length > 0) {
+            <div class="bio-section certifications-section">
+              <h4 class="section-title">CERTIFICATIONS</h4>
+              <div class="certification-list">
+                @for (cert of bio().certifications; track $index) {
+                  <div class="certification-item">
+                    <span class="certification-icon">🏆</span>
+                    <span class="certification-name">{{ cert }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="console-footer">
+      <div class="footer-line"></div>
+      <div class="navigation-hint">
+        <span class="hint-text">ESC or power button to exit</span>
+      </div>
+      <div class="footer-line"></div>
+    </div>
+  </div>
+}

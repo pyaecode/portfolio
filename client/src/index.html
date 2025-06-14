@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pyae's Portfolio</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    /* Critical CSS for immediate loading screen */
+    #initial-loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, rgba(0, 20, 40, 0.95) 0%, rgba(0, 5, 15, 1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      font-family: 'Courier New', monospace;
+      color: #00ffff;
+    }
+
+    #initial-loading.hidden {
+      display: none;
+    }
+
+    .initial-loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .initial-bat-symbol {
+      width: 300px;
+      height: auto;
+      max-width: 80vw;
+    }
+
+    .initial-bat-symbol svg {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+    }
+
+    .initial-bat-path {
+      fill: rgba(0, 255, 255, 0.1);
+      stroke: #00ffff;
+      stroke-width: 2;
+      stroke-dasharray: 3000;
+      stroke-dashoffset: 3000;
+      animation: drawBat 6s ease-in-out infinite;
+    }
+
+    .initial-loading-text {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .initial-status {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      animation: textPulse 2s ease-in-out infinite;
+    }
+
+    .initial-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      animation: textPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes drawBat {
+      0% {
+        stroke-dashoffset: 3000;
+        fill-opacity: 0.1;
+      }
+      60% {
+        stroke-dashoffset: 0;
+        fill-opacity: 0.2;
+      }
+      80% {
+        stroke-dashoffset: 0;
+        fill-opacity: 0.3;
+      }
+      100% {
+        stroke-dashoffset: 3000;
+        fill-opacity: 0.1;
+      }
+    }
+
+    @keyframes textPulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .initial-bat-symbol { width: 250px; }
+      .initial-status { font-size: 1rem; }
+      .initial-subtitle { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Initial loading screen shown immediately -->
+  <div id="initial-loading">
+    <div class="initial-loading-container">
+      <div class="initial-bat-symbol">
+        <svg viewBox="0 0 726 252.17" xmlns="http://www.w3.org/2000/svg">
+          <path
+            class="initial-bat-path"
+            d="M483.92 0S481.38 24.71 466 40.11c-11.74 11.74-24.09 12.66-40.26 15.07-9.42 1.41-29.7 3.77-34.81-.79-2.37-2.11-3-21-3.22-27.62-.21-6.92-1.36-16.52-2.82-18-.75 3.06-2.49 11.53-3.09 13.61S378.49 34.3 378 36a85.13 85.13 0 0 0-30.09 0c-.46-1.67-3.17-11.48-3.77-13.56s-2.34-10.55-3.09-13.61c-1.45 1.45-2.61 11.05-2.82 18-.21 6.67-.84 25.51-3.22 27.62-5.11 4.56-25.38 2.2-34.8.79-16.16-2.47-28.51-3.39-40.21-15.13C244.57 24.71 242 0 242 0H0s69.52 22.74 97.52 68.59c16.56 27.11 14.14 58.49 9.92 74.73C170 140 221.46 140 273 158.57c69.23 24.93 83.2 76.19 90 93.6 6.77-17.41 20.75-68.67 90-93.6 51.54-18.56 103-18.59 165.56-15.25-4.21-16.24-6.63-47.62 9.93-74.73C656.43 22.74 726 0 726 0z"
+          />
+        </svg>
+      </div>
+      <div class="initial-loading-text">
+        <div class="initial-status" id="loading-status">Initializing Batcave Systems...</div>
+        <div class="initial-subtitle">Preparing 3D environment</div>
+      </div>
+    </div>
+  </div>
+
+  <app-root></app-root>
+
+  <script>
+    (function() {
+      const statusElement = document.getElementById('loading-status');
+      const messages = [
+        'Initializing Batcave Systems...',
+        'Loading Application...',
+        'Preparing 3D Environment...',
+        'Starting Model Download...'
+      ];
+      let currentIndex = 0;
+      let intervalId;
+
+      function updateStatus() {
+        if (statusElement && !document.getElementById('initial-loading').classList.contains('hidden')) {
+          // Stop cycling if the text contains percentage (3D loading has started)
+          if (statusElement.textContent.includes('%')) {
+            clearInterval(intervalId);
+            return;
+          }
+          statusElement.textContent = messages[currentIndex];
+          currentIndex = (currentIndex + 1) % messages.length;
+        }
+      }
+
+      // Update every 2.5 seconds (slower to match the slower animation)
+      intervalId = setInterval(updateStatus, 2500);
+    })();
+  </script>
+</body>
+</html>

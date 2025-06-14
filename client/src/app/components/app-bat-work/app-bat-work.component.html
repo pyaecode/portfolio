@@ -1,0 +1,122 @@
+@if (isVisible()) {
+  <div class="bat-work">
+    <div class="console-header">
+      <div class="header-row">
+        <div class="header-left">
+          <div class="header-line"></div>
+          <div class="vehicle-indicator">
+            @if (workExperience(); as work) {
+              <span class="vehicle-icon">{{ getVehicleIcon(work.id) }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="header-center">
+          <h2 class="console-title">WORK EXPERIENCE</h2>
+        </div>
+
+        <div class="header-right">
+          <div class="navigation-controls">
+            <button class="nav-btn prev-btn" (click)="previousExperience()" title="Previous Experience">
+              <span class="nav-arrow">‹</span>
+            </button>
+            <button class="nav-btn next-btn" (click)="nextExperience()" title="Next Experience">
+              <span class="nav-arrow">›</span>
+            </button>
+          </div>
+          <div class="header-line"></div>
+          <div class="system-controls">
+            <button class="power-btn" (click)="exitWork()" title="Power Down Work Experience Interface">
+              <div class="power-symbol">
+                <div class="power-circle"></div>
+                <div class="power-line"></div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @if (workExperience(); as work) {
+      <div class="work-content">
+        <div class="work-section company-header">
+          <div class="company-info">
+            <div class="company-title">
+              <span class="company-icon">{{ getCompanyIcon(work.companyType) }}</span>
+              <h3 class="company-name">{{ work.company }}</h3>
+            </div>
+            <div class="position-info">
+              <h4 class="position-title">{{ work.position }}</h4>
+              <div class="work-meta">
+                <span class="duration">{{ work.duration }}</span>
+                <span class="location">📍 {{ work.location }}</span>
+                @if (work.teamSize) {
+                  <span class="team-size">👥 Team of {{ work.teamSize }}</span>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="company-type">{{ work.companyType }}</div>
+        </div>
+
+        <div class="work-section description-section">
+          <p class="work-description">{{ work.description }}</p>
+        </div>
+
+        <div class="work-grid">
+          <div class="work-column left-column">
+            <div class="work-section responsibilities-section">
+              <h4 class="section-title">KEY RESPONSIBILITIES</h4>
+              <ul class="responsibility-list">
+                @for (responsibility of work.responsibilities; track $index) {
+                  <li class="responsibility-item">{{ responsibility }}</li>
+                }
+              </ul>
+            </div>
+
+            <div class="work-section technologies-section">
+              <h4 class="section-title">TECHNOLOGIES USED</h4>
+              <div class="technology-grid">
+                @for (tech of work.technologies; track $index) {
+                  <div class="technology-item">
+                    <span class="tech-icon">{{ getTechnologyIcon(tech) }}</span>
+                    <span class="tech-name">{{ tech }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="work-column right-column">
+            <div class="work-section achievements-section">
+              <h4 class="section-title">KEY ACHIEVEMENTS</h4>
+              <ul class="achievement-list">
+                @for (achievement of work.achievements; track $index) {
+                  <li class="achievement-item">
+                    <span class="achievement-icon">🏆</span>
+                    <span class="achievement-text">{{ achievement }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+
+            <div class="work-section projects-section">
+              <h4 class="section-title">NOTABLE PROJECTS</h4>
+              @for (project of work.projects; track $index) {
+                <div class="project-item">
+                  <h5 class="project-name">{{ project.name }}</h5>
+                  <p class="project-description">{{ project.description }}</p>
+                  <div class="project-technologies">
+                    @for (tech of project.technologies; track $index) {
+                      <span class="project-tech">{{ tech }}</span>
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}
